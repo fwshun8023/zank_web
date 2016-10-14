@@ -1,0 +1,54 @@
+<% @posts.each do |post| %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title"><%= post.title %></h3>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12">
+          <%= post.content %>
+        </div>
+      </div>
+      <div class="row">
+        <% post.img_small.split(',').each do |img| %>
+          <div class="col-xs-2 col-sm-2">
+            <%= image_tag img, width: "100%" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <ul class="list-group">
+      <li class="list-group-item">tag</li>
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-xs-1 col-sm-1">
+            <%= image_tag post.user.avatar, width: "100%" %>
+          </div>
+          <div class="col-xs-1 col-sm-1">
+            <%= post.user.id %>
+          </div>
+          <div class="col-xs-1 col-sm-1">
+            <%= post.user.username %>
+          </div>
+          <div class="col-xs-1 col-sm-1">
+            <%= post.user.province %>
+          </div>
+          <div class="col-xs-1 col-sm-1">
+            <%= post.user.age %>
+          </div>
+          <div class="col-xs-1 col-sm-1">
+            <%= post.user.height %>
+          </div>
+          <div class="col-xs-1 col-sm-1">
+            <%= post.user.weight %>
+          </div>
+          <div class="col-xs-1 col-sm-1">
+            <%= post.user.sex_type %>
+          </div>
+        </div>
+      </li>
+      <li class="list-group-item">评论<%= post.comment_count %><span class="pull-right"><%= l post.created_at%></span></li>
+    </ul>
+  </div>
+<% end %>
+<%= paginate @posts %>
