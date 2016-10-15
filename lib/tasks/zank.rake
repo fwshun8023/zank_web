@@ -11,6 +11,7 @@ namespace :zank do
     timestamp = (Time.now.to_f * 1000).to_i
 
     while timestamp > final_timestamp
+      timestamp = nil
       posts = client.posts(circle_id: 41, timestamp: timestamp)
       posts.each do |post|
         p = Post.find_or_initialize_by(id: post.id)
@@ -19,7 +20,7 @@ namespace :zank do
           city:          post.city,
           title:         post.title,
           content:       post.content,
-          created_at:    post.created_at,
+          updated_at:    post.updated_at,
           comment_count: post.comment_count,
           cover_url:     post.cover_url,
           img_small:     post.img_small,
