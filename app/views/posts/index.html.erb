@@ -27,7 +27,7 @@
           <div class="col-xs-1 col-sm-1">
             <%= post.user.id %>
           </div>
-          <div class="col-xs-1 col-sm-1">
+          <div class="col-xs-2 col-sm-2">
             <%= post.user.username %>
           </div>
           <div class="col-xs-1 col-sm-1">
@@ -47,7 +47,7 @@
           </div>
         </div>
       </li>
-      <li class="list-group-item">评论<%= post.comment_count %><span class="pull-right"><%= l post.created_at%></span></li>
+      <li class="list-group-item">评论<%= post.comment_count %><span class="pull-right"><%= l post.updated_at %></span></li>
     </ul>
   </div>
 <% end %>
